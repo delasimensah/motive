@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-width: 0;
+    border-style: solid;
+  }
+
+  body {
+    margin: 0;
+    line-height: inherit;
+    overscroll-behavior: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
