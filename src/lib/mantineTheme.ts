@@ -8,7 +8,21 @@ const getTheme = (
   return {
     colorScheme,
     fontFamily,
-    headings: { fontFamily: headerFontFamily },
+    headings: {
+      fontFamily: headerFontFamily,
+      fontWeight: 700,
+      sizes: {
+        h1: {
+          fontSize: 30,
+        },
+        h2: {
+          fontSize: 24,
+        },
+        h3: {
+          fontSize: 20,
+        },
+      },
+    },
     // colors: {
     //   brand: [
     //     "#F0BBDD",

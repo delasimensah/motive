@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-import { Figtree } from "@next/font/google";
+import { DM_Sans } from "@next/font/google";
 import {
   MantineProvider,
   ColorSchemeProvider,
@@ -13,10 +13,11 @@ import { getCookie, setCookie } from "cookies-next";
 
 import "@styles";
 
-const font = Figtree({
+const font = DM_Sans({
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-figtree",
+  variable: "--font-dm-sans",
 });
 
 const App = (props: AppProps & { colorScheme: ColorScheme }) => {

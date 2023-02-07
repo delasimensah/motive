@@ -16,8 +16,32 @@
     overscroll-behavior: none;
   }
 
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
   a {
     color: inherit;
     text-decoration: inherit;
+  }
+}
+
+@layer utilities {
+  .title {
+    @apply text-lg font-bold;
   }
 }

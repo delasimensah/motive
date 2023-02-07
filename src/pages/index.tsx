@@ -1,5 +1,11 @@
+import { Title } from "@mantine/core";
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <Title order={1}>Home</Title>
+    </>
+  );
 };
 
 export default Home;
