@@ -61,8 +61,8 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
         `}</style>
 
         <DefaultSeo
-          title="Application or website name"
-          description="Description here"
+          title="Motive | Buy and sell cars"
+          description="Web application where users can buy and sell cars"
         />
 
         <Component {...pageProps} />
