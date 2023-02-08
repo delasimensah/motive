@@ -1,10 +1,11 @@
-import { Title } from "@mantine/core";
+import { Text } from "@mantine/core";
+import { AppLayout } from "@components";
 
 const Home = () => {
   return (
-    <>
-      <Title order={1}>Home</Title>
-    </>
+    <AppLayout>
+      <Text>Home</Text>
+    </AppLayout>
   );
 };
 
