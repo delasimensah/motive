@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import getTheme from "@lib/mantineTheme";
 import { getCookie, setCookie } from "cookies-next";
+import { AppLayout } from "@components";
 
 import "@styles";
 
@@ -66,7 +67,9 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
           description="Web application where users can buy and sell cars"
         />
 
-        <Component {...pageProps} />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </MantineProvider>
     </ColorSchemeProvider>
   );
