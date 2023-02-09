@@ -10,8 +10,8 @@ import booking from "@assets/icons/sidenav/booking.svg";
 import sell from "@assets/icons/sidenav/sell.svg";
 import buy from "@assets/icons/sidenav/buy.svg";
 import services from "@assets/icons/sidenav/services.svg";
-import calendar from "@assets/icons/sidenav/calendar.svg";
-import messages from "@assets/icons/sidenav/messages.svg";
+// import calendar from "@assets/icons/sidenav/calendar.svg";
+// import messages from "@assets/icons/sidenav/messages.svg";
 import settings from "@assets/icons/sidenav/settings.svg";
 import logout from "@assets/icons/sidenav/logout.svg";
 
@@ -56,16 +56,16 @@ const links = {
       title: "Services",
       icon: services,
     },
-    {
-      link: "/calendar",
-      title: "Calendar",
-      icon: calendar,
-    },
-    {
-      link: "/messages",
-      title: "Messages",
-      icon: messages,
-    },
+    // {
+    //   link: "/calendar",
+    //   title: "Calendar",
+    //   icon: calendar,
+    // },
+    // {
+    //   link: "/messages",
+    //   title: "Messages",
+    //   icon: messages,
+    // },
   ],
   bottom: [
     {
