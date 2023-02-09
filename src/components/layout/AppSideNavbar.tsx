@@ -93,7 +93,7 @@ const AppSideNavbar: FC<AppSideNavbarProps> = ({
         <Image src={logo} alt="" width={100} height={30} />
       </div>
 
-      <Navbar.Section grow className="pt-5">
+      <Navbar.Section grow className="pt-3">
         {links.top.map((link, idx) => {
           return (
             <SideNavbarLink

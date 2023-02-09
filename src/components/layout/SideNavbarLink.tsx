@@ -25,13 +25,13 @@ const NavLink: FC<NavbarLinkProps> = ({ link, onClick, icon, title }) => {
   return (
     <Group
       className={`${
-        active ? "bg-[#F3F5F8]" : "bg-transparent"
-      } p-2 rounded-md cursor-pointer`}
+        active ? "bg-[#F3F5F8]" : "bg-transparent hover:bg-[#F3F5F8]"
+      } p-2 rounded-md cursor-pointer mt-2`}
       onClick={onClick}
       spacing="xs"
     >
       <Image src={icon} alt="" width={20} height={20} />
-      <Text>{title}</Text>
+      <Text className="text-[#5F6165] text-sm font-medium">{title}</Text>
     </Group>
   );
 };
