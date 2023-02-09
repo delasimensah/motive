@@ -1,37 +1,55 @@
 import { FC } from "react";
-import { Text, Group } from "@mantine/core";
+import { Text, Group, useMantineColorScheme } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 type SideNavbarLinkProps = {
   link?: string;
-  icon: string;
+  icon: { light: string; dark: string };
   title?: string;
   onClick?: () => void;
 };
 
-type NavbarLinkProps = {
-  link?: string;
-  icon: string;
-  title?: string;
-  onClick?: () => void;
-};
+type NavbarLinkProps = SideNavbarLinkProps;
 
 const NavLink: FC<NavbarLinkProps> = ({ link, onClick, icon, title }) => {
   const { pathname } = useRouter();
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
   const active = link === pathname;
+  const bgActiveStyles = dark ? "bg-[#292E3D]" : "bg-[#F3F5F8]";
+  const bgInactiveHoverStyles = dark
+    ? "hover:bg-[#292E3D]"
+    : "hover:bg-[#F3F5F8]";
+  const textActiveStyles = dark ? "text-white" : "text-dark2";
+  const textInactiveStyles = dark ? "text-dark5" : "text-dark2";
+  const activeIcon = dark ? icon.dark : icon.light;
 
   return (
     <Group
       className={`${
-        active ? "bg-[#F3F5F8]" : "bg-transparent hover:bg-[#F3F5F8]"
+        active
+          ? ` ${bgActiveStyles}`
+          : `bg-transparent ${bgInactiveHoverStyles}`
       } p-2 rounded-md cursor-pointer mt-2`}
       onClick={onClick}
       spacing="xs"
     >
-      <Image src={icon} alt="" width={20} height={20} />
-      <Text className="text-[#5F6165] text-sm font-medium">{title}</Text>
+      <Image
+        src={active ? activeIcon : icon.light}
+        alt=""
+        width={20}
+        height={20}
+      />
+
+      <Text
+        className={`${
+          active ? textActiveStyles : textInactiveStyles
+        } text-sm font-medium`}
+      >
+        {title}
+      </Text>
     </Group>
   );
 };

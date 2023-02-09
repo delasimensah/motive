@@ -15,6 +15,8 @@ import HeaderSearch from "./HeaderSearch";
 // icons
 import notification from "@assets/icons/header/notification.svg";
 import noNotification from "@assets/icons/header/no-notification.svg";
+import notificationDark from "@assets/icons/header/notification-dark.svg";
+import noNotificationDark from "@assets/icons/header/no-notification-dark.svg";
 
 type AppHeaderProps = {
   opened: boolean;
@@ -23,23 +25,32 @@ type AppHeaderProps = {
 
 const AppHeader: FC<AppHeaderProps> = ({ opened, onClick }) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
   const notifications = 1;
+  const icon =
+    notifications > 0
+      ? dark
+        ? notificationDark
+        : notification
+      : dark
+      ? noNotificationDark
+      : noNotification;
 
   return (
     <Header
       height={{ base: 70 }}
       px="sm"
       withBorder={false}
-      className="bg-white"
+      className={`${dark ? "bg-dark1" : "bg-white"}`}
     >
       <Flex align="center" justify="space-between" className="h-full">
-        <Group spacing="md">
+        <Group spacing="xs">
           <Burger
             opened={opened}
             onClick={onClick}
             size="sm"
             classNames={{
-              root: "xl:hidden text-gray-600",
+              root: `xl:hidden`,
             }}
           />
 
@@ -51,20 +62,14 @@ const AppHeader: FC<AppHeaderProps> = ({ opened, onClick }) => {
             radius="xl"
             onClick={() => toggleColorScheme()}
             variant="transparent"
-            className={`${
-              colorScheme === "dark" ? "text-yellow" : "text-dark4 "
-            }`}
+            className={`${dark ? "text-yellow" : "text-dark4 "}`}
           >
-            {colorScheme === "dark" ? (
-              <TbSun size={20} />
-            ) : (
-              <TbMoonStars size={20} />
-            )}
+            {dark ? <TbSun size={20} /> : <TbMoonStars size={20} />}
           </ActionIcon>
 
           <ActionIcon radius="xl">
             <Image
-              src={notifications > 0 ? notification : noNotification}
+              src={icon}
               alt=""
               width={16}
               height={20}

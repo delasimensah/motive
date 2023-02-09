@@ -12,6 +12,7 @@ type AppLayoutProps = {
 
 const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
   const { width } = useViewportSize();
   const [opened, setOpened] = useState(false);
   const { pathname } = useRouter();
@@ -24,7 +25,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           padding="md"
           layout={width < 1279 ? "default" : "alt"}
           classNames={{
-            main: `${colorScheme === "dark" ? "bg-gray-800" : "bg-[#F5F5F5]"}`,
+            main: `${dark ? "bg-[#1F2128]" : "bg-[#F5F5F5]"}`,
           }}
           navbarOffsetBreakpoint="xl"
           navbar={<AppSideNavbar hidden={true} breakpoint="xl" />}

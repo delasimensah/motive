@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TextInput, ActionIcon, Button } from "@mantine/core";
+import { ActionIcon, Button, useMantineColorScheme } from "@mantine/core";
 import { SpotlightProvider, openSpotlight } from "@mantine/spotlight";
 import type { SpotlightAction } from "@mantine/spotlight";
 import Image from "next/image";
@@ -12,6 +12,9 @@ type HeaderSearchProps = {};
 const actions: SpotlightAction[] = [];
 
 const HeaderSearch: FC<HeaderSearchProps> = () => {
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
+
   return (
     <SpotlightProvider
       actions={actions}
@@ -21,8 +24,9 @@ const HeaderSearch: FC<HeaderSearchProps> = () => {
       radius={8}
       classNames={{
         root: "px-5",
-        searchInput:
-          "caret-orange  bg-[#F5F4F6] text-dark4 font-medium text-base",
+        searchInput: `caret-orange ${
+          dark ? "bg-[#1F2128]" : "bg-[#F5F4F6]"
+        } text-dark4 font-medium text-base`,
       }}
     >
       <ActionIcon
@@ -37,24 +41,17 @@ const HeaderSearch: FC<HeaderSearchProps> = () => {
         onClick={() => openSpotlight()}
         leftIcon={<Image src={search} alt="" width={15} height={15} />}
         classNames={{
-          root: "w-[350px] bg-[#F5F4F6] hover:bg-[#F5F4F6] text-dark4 font-medium hidden lg:flex",
+          root: `w-[350px] ${
+            dark
+              ? "bg-[#1F2128] hover:bg-[#1F2128]"
+              : "bg-[#F5F4F6] hover:bg-[#F5F4F6]"
+          } text-dark4 font-medium hidden lg:flex`,
           inner: "justify-start",
         }}
         radius={8}
       >
         Search
       </Button>
-
-      {/* <TextInput
-        placeholder="Search"
-        onClick={() => openSpotlight()}
-        icon={<Image src={search} alt="" width={15} height={15} />}
-        classNames={{
-          wrapper: "hidden lg:block",
-          input:
-            "w-[350px] bg-[#F5F4F6] border-transparent caret-orange focus:border-transparent",
-        }}
-      /> */}
     </SpotlightProvider>
   );
 };
