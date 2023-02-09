@@ -3,7 +3,7 @@ import { Text } from "@mantine/core";
 const SignUpPage = () => {
   return (
     <>
-      <Text>Signup</Text>
+      <Text>SignUp</Text>
     </>
   );
 };
