@@ -25,7 +25,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           padding="md"
           layout={width < 1279 ? "default" : "alt"}
           classNames={{
-            main: `${dark ? "bg-[#1F2128]" : "bg-[#F5F5F5]"}`,
+            main: `${dark ? "bg-dark" : "bg-[#F5F5F5]"}`,
           }}
           navbarOffsetBreakpoint="xl"
           navbar={<AppSideNavbar hidden={true} breakpoint="xl" />}
@@ -36,7 +36,13 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           {children}
         </AppShell>
       ) : (
-        children
+        <main
+          className={`min-h-screen ${
+            dark ? "bg-dark" : "bg-white"
+          } px-5 flex items-center`}
+        >
+          {children}
+        </main>
       )}
 
       <Drawer

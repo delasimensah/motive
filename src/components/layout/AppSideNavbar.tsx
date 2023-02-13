@@ -34,7 +34,7 @@ const AppSideNavbar: FC<AppSideNavbarProps> = ({
       hidden={hidden}
       width={{ base: 300 }}
       className={`border-r pl-[24px] pr-[50px] pb-[25px] ${
-        dark ? "bg-dark1 border-r-[#1F2128]" : "border-r-[#F5F5F5] bg-white"
+        dark ? "bg-dark1 border-r-dark" : "border-r-[#F5F5F5] bg-white"
       }`}
     >
       <div className="h-[70px] pt-[30px]">

@@ -25,7 +25,7 @@ const HeaderSearch: FC<HeaderSearchProps> = () => {
       classNames={{
         root: "px-5",
         searchInput: `caret-orange ${
-          dark ? "bg-[#1F2128]" : "bg-[#F5F4F6]"
+          dark ? "bg-dark" : "bg-[#F5F4F6]"
         } text-dark4 font-medium text-base`,
       }}
     >
@@ -42,9 +42,7 @@ const HeaderSearch: FC<HeaderSearchProps> = () => {
         leftIcon={<Image src={search} alt="" width={15} height={15} />}
         classNames={{
           root: `w-[350px] ${
-            dark
-              ? "bg-[#1F2128] hover:bg-[#1F2128]"
-              : "bg-[#F5F4F6] hover:bg-[#F5F4F6]"
+            dark ? "bg-dark hover:bg-dark" : "bg-[#F5F4F6] hover:bg-[#F5F4F6]"
           } text-dark4 font-medium hidden lg:flex`,
           inner: "justify-start",
         }}
