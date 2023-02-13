@@ -44,4 +44,8 @@
   .title {
     @apply text-lg font-bold;
   }
+
+  .auth-wrapper {
+    @apply max-w-[506px] mx-auto flex-1;
+  }
 }
