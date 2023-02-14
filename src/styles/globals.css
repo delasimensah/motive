@@ -50,7 +50,7 @@
   }
 
   .auth-input {
-    @apply focus:border-[#B1B5C3] focus-within:border-[#B1B5C3] border-[#B1B5C3] border py-[19px] rounded-[8px];
+    @apply focus:border-[#B1B5C3] focus-within:border-[#B1B5C3] text-[#777E90] border-[#B1B5C3] border py-[19px] rounded-[8px];
   }
 
   .auth-input-label {

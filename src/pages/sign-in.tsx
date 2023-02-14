@@ -10,12 +10,14 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // icons
 import google from "@assets/icons/auth/google.svg";
 import facebook from "@assets/icons/auth/facebook.svg";
 
 const SignInPage = () => {
+  const { push } = useRouter();
   return (
     <div className="space-y-5 auth-wrapper">
       <div>
@@ -23,7 +25,7 @@ const SignInPage = () => {
           Welcome Back
         </Title>
 
-        <Group spacing={4}>
+        <Group spacing={4} className="text-lg">
           <Text className="text-dark4">Don&apos;t have an account? </Text>
 
           <Link href="/sign-up" className="text-purple">
@@ -58,12 +60,13 @@ const SignInPage = () => {
         classNames={{
           label: "text-lg text-[#777E91] font-medium",
         }}
+        color="gray.3"
       />
 
-      <div className="rounded-[10px] bg-white border border-[#F4F5F6] p-5 space-y-5">
+      <div className="rounded-[10px] shadow-sm bg-white border border-[#F4F5F6] p-5 space-y-5">
         <TextInput
-          placeholder="Email"
           label="Email"
+          placeholder="example@email.com"
           classNames={{
             label: "auth-input-label",
             input: "auth-input",
@@ -71,27 +74,36 @@ const SignInPage = () => {
         />
 
         <PasswordInput
-          placeholder="Password"
           label="Password"
+          placeholder="***************"
           classNames={{
             label: "auth-input-label",
             input: "auth-input",
+            innerInput: "text-[#777E90]",
           }}
         />
       </div>
 
       <div className="flex justify-between item-center">
-        <Checkbox label="Remember me" />
+        <Checkbox
+          size="xs"
+          label="Remember me"
+          classNames={{
+            label: "text-[#B1B5C4]",
+            input: "bg-[#F5F5F5] checked:bg-purple checked:border-purple",
+          }}
+        />
 
-        <Link href="/sign-up" className="text-purple">
+        <Link href="/sign-in" className="text-purple">
           Forgot your password?
         </Link>
       </div>
 
       <Button
         fullWidth
-        className="rounded-lg bg-purple hover:bg-purple"
+        className="text-base font-medium rounded-lg bg-purple hover:bg-purple"
         size="md"
+        onClick={() => push("/")}
       >
         Sign In
       </Button>
