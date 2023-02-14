@@ -38,7 +38,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
       ) : (
         <main
           className={`min-h-screen ${
-            dark ? "bg-dark" : "bg-white"
+            dark ? "bg-dark" : "bg-[#F5F5F5]"
           } px-5 flex items-center`}
         >
           {children}
