@@ -28,7 +28,7 @@ const AuthInput: FC<Props> = ({ password, placeholder, label }) => {
           classNames={{
             label: labelStyles,
             input: inputStyles,
-            innerInput: "text-[#777E90]",
+            innerInput: `${dark ? "text-white1" : "text-[#777E90]"}`,
           }}
         />
       ) : (
