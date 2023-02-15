@@ -1,11 +1,33 @@
-import { Text } from "@mantine/core";
-import Link from "next/link";
+import {
+  AuthTitle,
+  SocialAuth,
+  AuthDivider,
+  FormWrapper,
+  AuthInput,
+  AuthButton,
+} from "@components";
 
 const SignUpPage = () => {
   return (
     <div className="auth-wrapper">
-      <Text>Let&apos;s Get Started</Text>
-      <Link href="/sign-in">Sign In</Link>
+      <AuthTitle
+        title="let's get started"
+        text={`Already have an account?`}
+        link={{ text: "Sign in", path: "/sign-in" }}
+      />
+
+      <SocialAuth />
+
+      <AuthDivider />
+
+      <FormWrapper>
+        <AuthInput label="First Name" placeholder="" />
+        <AuthInput label="Last Name" placeholder="" />
+        <AuthInput label="Email" placeholder="" />
+        <AuthInput label="Password" placeholder="" password />
+      </FormWrapper>
+
+      <AuthButton text="Sign Up" onClick={() => {}} />
     </div>
   );
 };
