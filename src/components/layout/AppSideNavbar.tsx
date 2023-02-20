@@ -8,6 +8,7 @@ import logo from "@assets/logo-full.svg";
 import logoWhite from "@assets/logo-full-white.svg";
 import Image from "next/image";
 import links from "./sidebarLinks";
+import { useRouter } from "next/router";
 
 import logout from "@assets/icons/sidenav/logout.svg";
 
@@ -26,6 +27,7 @@ const AppSideNavbar: FC<AppSideNavbarProps> = ({
 }) => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
+  const { push } = useRouter();
 
   return (
     <Navbar
@@ -69,7 +71,7 @@ const AppSideNavbar: FC<AppSideNavbarProps> = ({
         })}
 
         <SideNavbarLink
-          onClick={() => console.log("logout")}
+          onClick={() => push("/sign-in")}
           icon={{ light: logout, dark: logout }}
           title="Log out"
         />

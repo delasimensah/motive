@@ -8,8 +8,11 @@ import {
   FormWrapper,
   AuthButton,
 } from "@components";
+import { useRouter } from "next/router";
 
 const SignInPage = () => {
+  const { push } = useRouter();
+
   return (
     <div className="auth-wrapper">
       <AuthTitle
@@ -42,7 +45,7 @@ const SignInPage = () => {
         </Link>
       </div>
 
-      <AuthButton text="Sign In" onClick={() => {}} />
+      <AuthButton text="Sign In" onClick={() => push("/")} />
     </div>
   );
 };
