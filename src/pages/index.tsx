@@ -1,5 +1,6 @@
-import { useMantineColorScheme } from "@mantine/core";
-import ReactApexChart from "react-apexcharts";
+import { useMantineColorScheme, Grid, Stack } from "@mantine/core";
+import { StatsCard } from "@components";
+import { carStats } from "@lib/dummyData";
 
 const HomePage = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -7,178 +8,21 @@ const HomePage = () => {
   const bgColor = dark ? "bg-dark1" : "bg-white";
 
   return (
-    <div className="space-y-[30px]">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
-        <div className="h-[270px] bg-purple rounded-lg flex flex-col items-center">
-          <p>Energy</p>
-
-          <ReactApexChart
-            type="radialBar"
-            height={200}
-            width={200}
-            series={[45]}
-            options={{
-              colors: ["#ffffff"],
-              plotOptions: {
-                radialBar: {
-                  startAngle: -135,
-                  endAngle: 135,
-                  track: {
-                    background: "#B37EFC",
-                    startAngle: -135,
-                    endAngle: 135,
-                  },
-                  dataLabels: {
-                    name: {
-                      show: false,
-                    },
-                    value: {
-                      fontSize: "18px",
-                      show: true,
-                      offsetY: 5,
-                      color: "#ffffff",
-                      fontWeight: 700,
-                    },
-                  },
-                },
-              },
-
-              stroke: {
-                lineCap: "round",
-              },
-            }}
-          />
-        </div>
-
-        <div
-          className={`h-[270px] ${bgColor} rounded-lg flex flex-col items-center`}
-        >
-          <p>Range</p>
-
-          <ReactApexChart
-            type="radialBar"
-            height={200}
-            width={200}
-            series={[50]}
-            options={{
-              colors: ["#FF7E86"],
-              plotOptions: {
-                radialBar: {
-                  startAngle: -135,
-                  endAngle: 135,
-                  track: {
-                    background: dark ? "#1F2128" : "#F4F5F9",
-                    startAngle: -135,
-                    endAngle: 135,
-                  },
-                  dataLabels: {
-                    name: {
-                      show: false,
-                    },
-                    value: {
-                      fontSize: "18px",
-                      show: true,
-                      offsetY: 5,
-                      color: dark ? "#ffffff" : "#242731",
-                      fontWeight: 700,
-                    },
-                  },
-                },
-              },
-
-              stroke: {
-                lineCap: "round",
-              },
-            }}
-          />
-        </div>
-
-        <div
-          className={`h-[270px] ${bgColor} rounded-lg flex flex-col items-center`}
-        >
-          <p>Break Fluid</p>
-
-          <ReactApexChart
-            type="radialBar"
-            height={200}
-            width={200}
-            series={[9]}
-            options={{
-              colors: ["#A162F7"],
-              plotOptions: {
-                radialBar: {
-                  startAngle: -135,
-                  endAngle: 135,
-                  track: {
-                    background: dark ? "#1F2128" : "#F4F5F9",
-                    startAngle: -135,
-                    endAngle: 135,
-                  },
-                  dataLabels: {
-                    name: {
-                      show: false,
-                    },
-                    value: {
-                      fontSize: "18px",
-                      show: true,
-                      offsetY: 5,
-                      color: dark ? "#ffffff" : "#242731",
-                      fontWeight: 700,
-                    },
-                  },
-                },
-              },
-
-              stroke: {
-                lineCap: "round",
-              },
-            }}
-          />
-        </div>
-
-        <div
-          className={`h-[270px] ${bgColor} rounded-lg flex flex-col items-center`}
-        >
-          <p>Tire Wear</p>
-
-          <ReactApexChart
-            type="radialBar"
-            height={200}
-            width={200}
-            series={[25]}
-            options={{
-              colors: ["#F6CC0D"],
-              plotOptions: {
-                radialBar: {
-                  startAngle: -135,
-                  endAngle: 135,
-                  track: {
-                    background: dark ? "#1F2128" : "#F4F5F9",
-                    startAngle: -135,
-                    endAngle: 135,
-                  },
-                  dataLabels: {
-                    name: {
-                      show: false,
-                    },
-                    value: {
-                      fontSize: "18px",
-                      show: true,
-                      offsetY: 5,
-                      color: dark ? "#ffffff" : "#242731",
-                      fontWeight: 700,
-                    },
-                  },
-                },
-              },
-
-              stroke: {
-                lineCap: "round",
-              },
-            }}
-          />
-        </div>
-      </div>
+    <Stack spacing={30}>
+      <Grid gutter={30}>
+        {carStats.map(({ title, bgColor, color, percentage }, idx) => {
+          return (
+            <Grid.Col md={6} lg={3} key={idx}>
+              <StatsCard
+                text={title}
+                bgColor={bgColor}
+                color={color}
+                percentage={percentage}
+              />
+            </Grid.Col>
+          );
+        })}
+      </Grid>
 
       <div className="grid lg:grid-cols-2 gap-[30px]">
         <div className={`h-[350px] ${bgColor} rounded-lg`}></div>
@@ -193,18 +37,8 @@ const HomePage = () => {
 
         <div className="h-[240px] bg-[#f4e3e5] rounded-lg"></div>
       </div>
-    </div>
+    </Stack>
   );
 };
 
 export default HomePage;
-
-// fill: {
-//   type: "gradient",
-//   gradient: {
-//     shade: "dark",
-//     type: "horizontal",
-//     gradientToColors: ["#87D4F9"],
-//     stops: [0, 100],
-//   },
-// },
