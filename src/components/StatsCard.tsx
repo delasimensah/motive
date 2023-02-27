@@ -6,6 +6,7 @@ import {
   Text,
   useMantineTheme,
 } from "@mantine/core";
+import Image from "next/image";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -16,6 +17,7 @@ type StatsCardProps = {
   bgColor?: string;
   color: string;
   percentage: number;
+  icon: string;
 };
 
 const StatsCard: FC<StatsCardProps> = ({
@@ -23,6 +25,7 @@ const StatsCard: FC<StatsCardProps> = ({
   bgColor,
   color,
   percentage,
+  icon,
 }) => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
@@ -37,21 +40,29 @@ const StatsCard: FC<StatsCardProps> = ({
         bgColor ? "bg-purple" : dark ? "bg-dark1" : "bg-white"
       } rounded-lg`}
     >
+      <Image src={icon} alt="" height={40} width={40} />
+
       <Text
-        className={`${bgColor ? "text-white" : dark ? "#ffffff" : "#242731"}`}
+        className={`${
+          bgColor ? "text-white" : dark ? "#ffffff" : "#242731"
+        } font-bold text-xl mt-5`}
       >
         {text}
       </Text>
 
       <ReactApexChart
         type="radialBar"
-        height={200}
-        width={200}
+        height={180}
+        width={180}
         series={[percentage]}
         options={{
           colors: [color],
           plotOptions: {
             radialBar: {
+              hollow: {
+                // margin: 15,
+                size: "55%",
+              },
               startAngle: -135,
               endAngle: 135,
               track: {
