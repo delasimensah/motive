@@ -36,27 +36,30 @@ export const carStats = [
 
 export const recommended = [
   {
-    recommeded: "64%",
-    name: "Mini Cooper",
+    recommended: "64%",
+    name: "Toyota Camry",
     hourly: 32,
     image: mini,
     width: 257,
-    bgColor: "#e1dfa4",
+    bgColor: "bg-[#e1dfa4]",
+    number: 132,
   },
   {
-    recommeded: "74%",
+    recommended: "74%",
     name: "Porsche 911 Carrera",
     hourly: 28,
     image: suzuki,
     width: 247,
-    bgColor: "#e3ecf1",
+    bgColor: "bg-[#e3ecf1]",
+    number: 130,
   },
   {
-    recommeded: "74%",
-    name: "Porsche 911 Carrera",
+    recommended: "74%",
+    name: "Mini Cooper",
     hourly: 28,
     image: bmw,
     width: 216,
-    bgColor: "#f4e3e5",
+    bgColor: "bg-[#f4e3e5]",
+    number: 130,
   },
 ];

@@ -1,7 +1,6 @@
 import { useMantineColorScheme, Grid, Stack } from "@mantine/core";
-import { StatsCard } from "@components";
+import { StatsCard, CarCard } from "@components";
 import { carStats, recommended } from "@lib/dummyData";
-import Image from "next/image";
 
 const HomePage = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -33,12 +32,10 @@ const HomePage = () => {
       </div>
 
       <Grid gutter={30}>
-        {recommended.map(({ bgColor, image, width }, idx) => {
+        {recommended.map((details, idx) => {
           return (
             <Grid.Col md={6} lg={4} key={idx}>
-              <div className={`h-[240px] bg-[${bgColor}] rounded-lg`}>
-                <Image src={image} alt="" height={106} width={width} />
-              </div>
+              <CarCard details={details} />
             </Grid.Col>
           );
         })}
