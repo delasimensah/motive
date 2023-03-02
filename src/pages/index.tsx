@@ -1,5 +1,5 @@
 import { useMantineColorScheme, Grid, Stack } from "@mantine/core";
-import { StatsCard, CarCard } from "@components";
+import { StatsCard, CarCard, BarChart } from "@components";
 import { carStats, recommended } from "@lib/dummyData";
 
 const HomePage = () => {
@@ -26,9 +26,18 @@ const HomePage = () => {
       </Grid>
 
       <div className="grid lg:grid-cols-2 gap-[30px]">
-        <div className={`h-[350px] ${bgColor} rounded-lg`}></div>
+        <div className={`${bgColor} rounded-lg px-[25px] py-[15px]`}>
+          <p className={`text-xl  ${dark ? "text-white" : "text-dark1"}`}>
+            <span className="font-bold">Miles</span> Statistics
+          </p>
+          {/* <BarChart /> */}
+        </div>
 
-        <div className={`h-[350px] ${bgColor} rounded-lg`}></div>
+        <div className={`${bgColor} rounded-lg px-[25px] py-[15px]`}>
+          <p className={`text-xl  ${dark ? "text-white" : "text-dark1"}`}>
+            <span className="font-bold">Car</span> Statistics
+          </p>
+        </div>
       </div>
 
       <Grid gutter={30}>

@@ -20,7 +20,9 @@ type CarCardProps = {
 const CarCard: FC<CarCardProps> = ({ details }) => {
   const { bgColor, image, name, width, number, hourly, recommended } = details;
   return (
-    <div className={` ${bgColor} rounded-lg py-[15px] px-[27px] flex flex-col`}>
+    <div
+      className={`${bgColor} rounded-lg py-[15px] px-[27px] flex flex-col space-y-2`}
+    >
       <div className="flex items-center space-x-2">
         <Image src={recommend} alt="" height={20} width={20} />
 

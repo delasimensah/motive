@@ -10,3 +10,4 @@ export { default as AuthButton } from "./auth/AuthButton";
 
 export { default as StatsCard } from "./dashboard/StatsCard";
 export { default as CarCard } from "./dashboard/CarCard";
+export { default as BarChart } from "./dashboard/BarChart";
