@@ -30,7 +30,8 @@ const HomePage = () => {
           <p className={`text-xl  ${dark ? "text-white" : "text-dark1"}`}>
             <span className="font-bold">Miles</span> Statistics
           </p>
-          {/* <BarChart /> */}
+
+          <BarChart />
         </div>
 
         <div className={`${bgColor} rounded-lg px-[25px] py-[15px]`}>
